@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 10s  # Adjust scraping interval
+
+scrape_configs:
+  - job_name: 'cpu_monitor'
+    static_configs:
+      - targets: ['cpu-monitor-app:8000']  # Use container name for networking

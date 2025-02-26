@@ -1,0 +1,32 @@
+version: '3'
+services:
+  cpu-monitor-app:
+    build: .
+    ports:
+      - "8001:8001"  # Flask API accessible on port 8001
+      - "8000:8000"  # Prometheus scrapes metrics from port 8000
+    restart: always
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"  # Prometheus UI accessible on port 9090
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    depends_on:
+      - cpu-monitor-app  # Ensure CPU monitor app starts first
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"  # Grafana UI available on port 3000
+    depends_on:
+      - prometheus
+    restart: always
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+volumes:
+  grafana-data:

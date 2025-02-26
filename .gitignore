@@ -1,0 +1,37 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments (your "pythonenv" directory seems to contain a virtual env)
+bin/
+include/
+lib/
+lib64/
+pyvenv.cfg
+
+# Ignore dependency lock files (if using virtualenv or Pipenv)
+Pipfile
+Pipfile.lock
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore environment variables and secrets (always keep credentials out of Git)
+.env
+*.env
+
+# Ignore Docker-related files that should not be committed
+*.pid
+docker-compose.override.yml
+
+# Ignore Prometheus and Grafana data (they generate runtime files)
+prometheus_data/
+grafana-data/
+
+# Ignore IDE/editor-specific settings
+.vscode/
+.idea/

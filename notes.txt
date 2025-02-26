@@ -1,0 +1,36 @@
+install python steps:
+1. sudo apt update
+2.sudo apt install python3
+3.python3 --version
+4.sudo apt install python3-pip
+5.pip3 --version
+6.sudo apt install python3-venv
+7.python3 -m venv pythonenv
+8.source pythonenv/bin/activate
+9.pip install psutil Flask prometheus_clientю
+10. deactivate -> when stop working with the environment
+11. pip freeze > requirements.txt
+12. pip install -r requirements.txt
+13. python cpu_usage_prometheus_app.py
+14. http://localhost:8000/metrics
+
+docker build -t cpu-monito-app . 
+docker run -d -p 8000:8000 -p 8001:8001 --name cpu_monitor_app cpu-monito-app
+
+http://localhost:8000/metrics
+http://localhost:8001/cpu_usage
+
+create prometheus.yml
+create docker-compose.yml
+
+docker compose up -d
+docker ps
+docker-compose logs -f
+
+
+check 
+http://localhost:8001/cpu_usage
+http://localhost:8000/metrics
+
+adding grafana in docker-compose
+
