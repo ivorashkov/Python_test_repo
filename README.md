@@ -188,9 +188,9 @@ docker-compose up -d
    cpu_usage
    ```
 
-   ![image](https://github.com/user-attachments/assets/56931cd6-2bac-4dbb-88b7-816a2074bb1f)
-
 4. Select **Graph Type**
 5. Click **Save** and name your dashboard
+
+   ![image](https://github.com/user-attachments/assets/56931cd6-2bac-4dbb-88b7-816a2074bb1f)
 
 
